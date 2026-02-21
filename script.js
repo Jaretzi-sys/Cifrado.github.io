@@ -1,4 +1,3 @@
-// ─── STATE ───────────────────────────────────────────────
 let currentMethod = 'cesar';
 let shiftN = 3;
 let charset = '';
@@ -13,12 +12,11 @@ const CHARSETS = {
   })()
 };
 
-// ─── INIT ─────────────────────────────────────────────────
+
 document.addEventListener('DOMContentLoaded', () => {
   setCharset('alpha');
 });
 
-// ─── METHOD ───────────────────────────────────────────────
 function setMethod(m) {
   currentMethod = m;
   document.getElementById('btn-cesar').classList.toggle('active', m==='cesar');
@@ -33,7 +31,7 @@ function updateShift(v) {
   document.getElementById('shift-display').textContent = v;
 }
 
-// ─── CHARSET ──────────────────────────────────────────────
+
 function setCharset(type) {
   ['alpha','alphanum','printable','custom'].forEach(t => {
     document.getElementById('cs-'+t).classList.toggle('active', t===type);
@@ -62,14 +60,13 @@ function renderCharsetPreview() {
     unique.split('').map(c => `<span>${c==' '?'·':c}</span>`).join('');
 }
 
-// ─── CIPHER ALGORITHMS ────────────────────────────────────
 function cesarEncrypt(text, shift, cs) {
   const n = cs.length;
   if(n === 0) return text;
   shift = ((shift % n) + n) % n;
   return text.split('').map(ch => {
     const idx = cs.indexOf(ch);
-    if(idx === -1) return ch; // not in charset → keep as-is
+    if(idx === -1) return ch;
     return cs[(idx + shift) % n];
   }).join('');
 }
@@ -88,7 +85,6 @@ function atbashCipher(text, cs) {
   }).join('');
 }
 
-// ─── PROCESS ──────────────────────────────────────────────
 function process(mode) {
   const input = document.getElementById('input-text').value;
   if(!input.trim()) { showOutput(''); return; }
@@ -99,7 +95,6 @@ function process(mode) {
       ? cesarEncrypt(input, shiftN, charset)
       : cesarDecrypt(input, shiftN, charset);
   } else {
-    // Atbash is its own inverse
     result = atbashCipher(input, charset);
   }
   showOutput(result);
@@ -117,7 +112,6 @@ function showOutput(text) {
   }
   ph.style.display = 'none';
   cp.style.display = 'block';
-  // set text node
   let tn = box.querySelector('#result-text');
   if(!tn) {
     tn = document.createElement('span');

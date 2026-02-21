@@ -92,7 +92,6 @@
     background: var(--border);
   }
 
-  /* Method selector */
   .method-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -140,7 +139,6 @@
     color: rgba(212,103,154,0.7);
   }
 
-  /* Caesar config */
   #cesar-config {
     display: none;
   }
@@ -178,7 +176,6 @@
     text-align: center;
   }
 
-  /* Charset */
   .charset-row {
     display: flex;
     gap: 10px;
@@ -206,7 +203,6 @@
     background: rgba(168,85,160,0.08);
   }
 
-  /* Textarea */
   .field-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
@@ -237,7 +233,6 @@
     box-shadow: 0 0 0 3px rgba(212,103,154,0.12);
   }
 
-  /* Action buttons */
   .action-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -282,7 +277,6 @@
     transform: translateY(-1px);
   }
 
-  /* Output */
   .output-box {
     background: #fff8fb;
     border: 1.5px solid var(--border);
@@ -320,7 +314,6 @@
 
   .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* Info badge */
   .info-badge {
     display: inline-flex;
     align-items: center;
@@ -362,7 +355,6 @@
     .action-row { grid-template-columns: 1fr; }
   }
 
-  /* Charset display */
   #charset-preview {
     font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
@@ -379,6 +371,7 @@
     border-radius: 4px;
     margin: 0 1px;
   }
+  
   .custom-input {
   width: 100%;
   background: #fff8fb;
